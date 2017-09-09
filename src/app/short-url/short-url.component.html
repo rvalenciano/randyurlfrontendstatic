@@ -1,0 +1,43 @@
+<div class="well bs-component">
+  <div class="row" *ngIf="successfullUpdate === 1">
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <div class="alert alert-dismissible alert-success">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <strong>Well done!</strong> Your short URL is:. <h3>{{dataExtracted}}</h3> .
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="successfullUpdate === -1">
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <strong>Warning, an error has ocurred!</strong> {{errorMessage}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="well bs-component">
+      <form #form="ngForm" (ngSubmit)="getShortUrls(form.value)" class="form-horizontal">
+        <fieldset>
+          <legend>Use this form to get a short url.</legend>
+          <div class="form-group">
+            <input type="text" name="url" [(ngModel)]="url" class="form-control" id="long-url-input" required/>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+              <button type="submit" id="btn-services-sync" class="btn btn-primary btn-lg btn-block">Get my nice url!
+                 &nbsp;
+                <span id="service-spinner" class="spinner glyphicon glyphicon-refresh" style="display:none;" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+  <hr>
