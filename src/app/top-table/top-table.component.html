@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+      <form #form="ngForm" (ngSubmit)="refreshTable()" class="form-horizontal">
+        <fieldset>
+          <legend>Refresh data of this page after  bot is called.</legend>
+          <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+              <button type="submit" id="btn-services-sync" class="btn btn-primary btn-lg btn-block">Refresh!
+                 &nbsp;
+                <span id="service-spinner" class="spinner glyphicon glyphicon-refresh" style="display:none;" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+  </div>
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Access</th>
+          <th>Long URL</th>
+          <th>Short URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let elem of data">
+          <td>{{elem.access}}</td>
+          <td>{{elem.url}}</td>
+          <td>{{elem.minified_url}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
